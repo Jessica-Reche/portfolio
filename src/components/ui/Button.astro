@@ -1,0 +1,37 @@
+---
+interface Props {
+	size?: 'sm' | 'md' | 'lg';
+	block?: boolean;
+	style?: 'primary' | 'simple' | 'highlight';
+	class?: string;
+	[x: string]: any;
+}
+
+const { size = 'md', style, block, class: className, ...rest } = Astro.props;
+
+const sizes = {
+	sm: 'px-4 py-1.5',
+	md: 'px-5 py-2.5',
+	lg: 'px-6 py-3',
+};
+
+const styles = {
+	primary: 'bg-gradient-to-r from-[#e83699] to-violet text-white font-bold dark:bg-gradient-to-r dark:from-[#fe9fb2] dark:to-violet  dark:text-black ',
+	simple: 'bg-white text-black hover:bg-white border-2 border-pinky',
+	highlight: 'border-2 text-black border-black bg-highlight-gradient',
+};
+---
+
+<button
+	{...rest}
+	class:list={[
+		'rounded-xl text-center transition focus-visible:ring-2 ring-offset-2 ring-pinky ',
+		'dark-button-class',
+		block && 'w-full',
+		sizes[size],
+		styles[style ?? 'primary'],
+		className,
+	]}
+>
+	<slot />
+</button>

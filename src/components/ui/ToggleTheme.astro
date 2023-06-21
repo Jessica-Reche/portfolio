@@ -1,0 +1,70 @@
+<div class="theme-switch-wrapper md:flex md:items-center ">
+	<label
+		data-testid="theme-switch"
+		class="theme-switch relative inline-block h-[34px] w-[60px]"
+		for="checkbox"
+	>
+		<input type="checkbox" id="checkbox" class="hidden " />
+		<div
+		class="slider absolute bottom-0 left-0 right-0 top-0 cursor-pointer rounded-full
+		bg-trasparent  border-2 border-gray-400 
+		black:border-2 black:border-gray-300 before:relative 
+		before:rounded-full before:transition-[0.4s]
+		before:bg-violet"  
+		id="sliderButton"
+		>
+		</div>
+	</label>
+</div>
+
+<style>
+	input:checked + .slider:before {
+		transform: translateX(26px);
+	}
+
+	#sliderButton::before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		height: 100%;
+		width: 55%;
+		border-radius: 50%;
+		background-image: url('../../assets/images/ligth-mode.svg');
+		background-size: contain;
+		background-repeat: no-repeat;
+		transition: 0.4s;
+	}
+
+	html.dark  #sliderButton::before {
+		background-image: url('../../assets/images/dark-mode.svg');
+	}
+	
+</style>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function ready() {
+		const button = document.querySelector(
+			'.theme-switch input[type="checkbox"]'
+		) as HTMLInputElement;
+
+		const switchTheme = () => {
+			document.documentElement.classList.toggle('dark');
+			if (document.documentElement.classList.contains('dark')) {
+				localStorage.setItem('theme', 'dark');
+			}
+		};
+
+		if (
+			localStorage.theme === 'dark' ||
+			(!('theme' in localStorage) &&
+				window.matchMedia('(prefers-color-scheme: dark)').matches)
+		) {
+			switchTheme();
+		}
+
+		button.addEventListener('click', () => {
+			switchTheme();
+		});
+	});
+</script>

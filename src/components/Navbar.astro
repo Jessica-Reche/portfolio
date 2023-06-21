@@ -1,0 +1,57 @@
+---
+import Button from '@components/ui/Button.astro';
+import ToggleTheme from '@components/ui/ToggleTheme.astro';
+import { Astronav, MenuIcon, MenuItems } from 'astro-navbar';
+
+const menuitems = [
+	{
+		title: 'About',
+		path: '#about',
+	},
+	{
+		title: 'Projects',
+		path: '#projects',
+	},
+	{
+		title: 'Contact',
+		path: '#contact',
+	},
+];
+---
+
+<header data-testId="header" class="my-5 flex flex-col items-center justify-between lg:flex-row">
+	<Astronav>
+		<div class="flex w-full items-center justify-between lg:w-auto">
+			<Button size={'sm'} name="Download CV">Download CV</Button>
+			<div class="block lg:hidden">
+				<MenuIcon class="h-4 w-4 text-black dark:text-white"/>
+			</div>
+		</div>
+		<MenuItems class="bg-opacity-0 mt-2 hidden w-full lg:mt-0 lg:flex lg:w-auto">
+			<ul class="flex flex-col lg:flex-row lg:gap-3 bg-opacity-0">
+				{
+					menuitems.map((item) => (
+						<>
+							<li>
+								<a
+									aria-label="navigation link"
+									href={item.path}
+									class="flex py-2 text-obscure  hover:text-pinky dark:text-white
+									 dark:hover:text-pinky dark:hover:shadow-pinkligth dark:hover:shadow-lg lg:px-3 
+									rounded-lg transition duration-300 ease-in-out 
+									  "
+								>
+									{item.title}
+								</a>
+							</li>
+						</>
+					))
+				}
+			
+				<li class='flex'><ToggleTheme /></li>
+			</ul>
+		</MenuItems>
+	</Astronav>
+</header>
+
+
