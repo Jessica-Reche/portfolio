@@ -20,6 +20,7 @@ module.exports = {
 				violet: '#8E35F2',
 				pinky: '#D89FFE',
 				pinkligth: 'rgba(254,159,178,.56)',
+				degradedDark: 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(154,212,255,1) 0%, rgba(227,228,229,1) 100%)',
 			}),
 		},
 		fontFamily: {
