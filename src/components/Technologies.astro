@@ -1,0 +1,28 @@
+---
+import Next from '../assets/images/Next.astro';
+import Node from '../assets/images/Node.astro';
+import React from '../assets/images/React.astro';
+import TypeScript from '../assets/images/TypeScript.astro';
+import Git from '../assets/images/Git.astro';
+---
+
+<section
+	id="technologies"
+	class="mb-10 flex flex-col items-center justify-center lg:mb-0 lg:h-screen lg:flex-row"
+>
+	<div data-testid='technologies-header' class="mb-10 flex w-full flex-col items-center justify-center lg:mb-0 lg:w-1/2">
+		<h2 class="font-sans text-2xl  dark:bg-gradient-to-r dark:from-[#9ad4ff] dark:to-[#e3e4e5] bg-gradient-to-r from-[#286cf2] to-[#858484] text-transparent bg-clip-text  lg:text-4xl">Tecnologías</h2>
+		<span class="mb-6 ml-2 h-1 w-10 bg-pinky"></span>
+	</div>
+
+	<div data-testid="technologies" class=" flex  justify-center w-1/2 items-center gap-10 ">
+		<Next  />
+		<Node  />
+		<React />
+		<TypeScript  />
+		<Git/>
+
+	</div>
+</section>
+
+

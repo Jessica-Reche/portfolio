@@ -1,4 +1,7 @@
+
 const plugin = require('tailwindcss/plugin');
+const gradientUtilities = require('./utils-tailwind/tailwindGradientsConfig.cjs');
+
 
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue,react}'],
@@ -14,13 +17,13 @@ module.exports = {
 		},
 		extend: {
 			colors: Object.assign({}, require('tailwindcss/colors'), {
-				// Aquí puedes agregar tus colores personalizados
 				obscure: '#191919',
 				white: '#fff',
 				violet: '#8E35F2',
 				pinky: '#D89FFE',
 				pinkligth: 'rgba(254,159,178,.56)',
-				
+				'ract-dark': 'hsl(193 95% 68% / 1)'
+
 			}),
 		},
 		fontFamily: {
@@ -58,5 +61,11 @@ module.exports = {
 				},
 			});
 		}),
+
+		function ({ addUtilities }) {
+		  
+			addUtilities(gradientUtilities);
+		  }
+		  
 	],
 };
