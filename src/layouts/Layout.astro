@@ -26,7 +26,7 @@ const { title = 'Jesica Reche | Web developer' } = Astro.props as LayoutProps;
 		<title>{title}</title>
 	</head>
 	<body
-		class="mx-auto max-w-screen-xl bg-white px-5 font-sans text-white dark:bg-obscure xs:text-[16px] md:text-[18px]"
+		class=" bg-white px-5 font-sans text-white dark:bg-obscure xs:text-[16px] md:text-[18px]"
 	>
 		<Navbar />
 		<slot />
@@ -39,6 +39,13 @@ const { title = 'Jesica Reche | Web developer' } = Astro.props as LayoutProps;
 			img {
 				content-visibility: auto;
 			}
+		
+			html {
+				scroll-padding-top: 4.5rem;
+			}
+
+
+			
 		</style>
 	</body>
 </html>

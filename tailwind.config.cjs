@@ -22,7 +22,12 @@ module.exports = {
 				violet: '#8E35F2',
 				pinky: '#D89FFE',
 				pinkligth: 'rgba(254,159,178,.56)',
-				'ract-dark': 'hsl(193 95% 68% / 1)'
+				'react-dark': 'hsl(193 95% 68% / 1)',
+				'node-dark': 'hsl(89,53%,54%)',
+				'next-dark': 'hsl(0,50%,100%)',
+				'typescript-dark': 'hsl(211,60%,48%)',
+				'git-dark': 'hsl(11,90%,55%)',
+				'blur-git': 'hsl(11,90%,55%,.2)',
 
 			}),
 		},
@@ -63,9 +68,9 @@ module.exports = {
 		}),
 
 		function ({ addUtilities }) {
-		  
+
 			addUtilities(gradientUtilities);
-		  }
-		  
+		}
+
 	],
 };
