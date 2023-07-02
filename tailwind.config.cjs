@@ -68,7 +68,6 @@ module.exports = {
 		}),
 
 		function ({ addUtilities }) {
-
 			addUtilities(gradientUtilities);
 		}
 

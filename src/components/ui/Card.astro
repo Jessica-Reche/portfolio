@@ -1,97 +1,64 @@
 ---
-import projectImage from '@assets/images/natural-cherry.webp';
+import projectImage from '@assets/images/logo-2.png';
 import { Image } from '@astrojs/image/components';
 import Tags from '@components/ui/Tags.astro';
 
 interface Props {
-	title: string ;
-	alt: string ;
-	tags: string[] ;
+	title: string;
+	alt: string;
+	tags: string[];
 	urlWeb: string | undefined;
 	url: { url: string; label: string }[] | undefined;
 	children?: HTMLElement | HTMLElement[];
 }
-const { alt , title , tags , urlWeb, url} = Astro.props;
+const { alt, title, tags, urlWeb, url } = Astro.props;
 ---
 
-<!-- <section class="w-full p-4 md:w-1/2 lg:w-1/3">
-	<article
-		data-testId="card"
-		class="rounded-xl bg-white p-3 shadow-lg duration-100 hover:scale-105 hover:transform hover:shadow-xl"
+<section
+	class="flex flex-row max-w-[900px] justify-center  border border-black dark:border-white rounded-md"
+>
+	<section
+		class="flex flex-col rounded-lg bg-transparent shadow-pinkligth dark:bg-transparent md:w-full md:flex-row"
 	>
-		<a target="_blanck" href={urlWeb} aria-label="link to project">
-		
-			<div class="relative flex items-end overflow-hidden rounded-xl">
-				<Image
-					src={projectImage}
-					alt={alt}
-					aspectRatio="4:4"
-					width={400}
-					height={400}
-					loading="eager"
-				/>
-			</div>
-			<div class="px-6 pt-4 pb-2">
-				{
-					url?.map(({ url, label }) => (
-						<>
-							<a
-								href={url}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-							>
-								{label}
-							</a>
-						</>
-						
-					))
-
-					
-				}
-			</div>
-			<div class="mt-1 p-2">
-				<h3 class="text-xl text-violet lg:text-2xl">{title}</h3>
-				<Tags tags={tags} />
-			</div>
-		</a>
-	</article>
-</section> -->
-<!-- component -->
-<section class="flex flex-row justify-center m-2">
-	<div class="max-w-full overflow-x-auto">
-		<div class="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white">
-			<div class="w-full md:w-1/3 bg-white grid place-items-center">
-				<Image src={projectImage}  loading="eager" alt={alt} class="rounded-xl" />
-			</div>
-			<div class="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3">
-				<div class="flex justify-between item-center">
-					<p class="text-gray-500 font-medium hidden md:block">Vacations</p>
-					<div class="flex items-center">
-						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
-							<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-						</svg>
-						<p class="text-gray-600 font-bold text-sm ml-1">
-							4.96
-							<span class="text-gray-500 font-normal">(76 reviews)</span>
-						</p>
-					</div>
-					<div class="">
-						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-pink-500" viewBox="0 0 20 20" fill="currentColor">
-							<path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
-						</svg>
-					</div>
-					<div class="bg-gray-200 px-3 py-1 rounded-full text-xs font-medium text-gray-800 hidden md:block">
-						Superhost
-					</div>
-				</div>
-				<h3 class="font-black text-gray-800 md:text-3xl text-xl">The Majestic and Wonderful Bahamas</h3>
-				<p class="md:text-lg text-gray-500 text-base">The best kept secret of The Bahamas is the country’s sheer size and diversity. With 16 major islands, The Bahamas is an unmatched destination</p>
-				<p class="text-xl font-black text-gray-800">
-					$110
-					<span class="font-normal text-gray-600 text-base">/night</span>
+		<figure class="w-full h-full">
+			<Image
+				src={projectImage}
+				loading="eager"
+				alt={alt}
+				class="h-96 w-full rounded-t-lg object-contain md:object-cover md:h-auto md:w-72 md:rounded-none md:rounded-l-lg"
+			/>
+		</figure>
+		<article class="flex flex-col justify-start p-6">
+			<header>
+				<h5 class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
+					{title}
+				</h5>
+				<p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+					This is a wider card with supporting text below as a natural lead-in to
+					additional content. This content is a little bit longer.
 				</p>
-			</div>
-		</div>
-	</div>
+			</header>
+			<footer>
+				<p class="text-xs text-neutral-500 dark:text-neutral-300">
+					Last updated 3 mins ago
+				</p>
+				<span class="font-normal text-gray-600 text-base">
+					{
+						url?.map(({ url, label }) => (
+							<>
+								<a
+									href={url}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
+								>
+									{label}
+								</a>
+							</>
+						))
+					}
+				</span>
+			</footer>
+		</article>
+	</section>
 </section>

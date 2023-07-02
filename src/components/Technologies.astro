@@ -1,93 +1,83 @@
 ---
-import React from "@assets/images/React.astro";
-import Next from "@assets/images/Next.astro";
-import Node from "@assets/images/Node.astro";
-import TypeScript from "@assets/images/TypeScript.astro";
-import Git from "@assets/images/Git.astro";
+import React from '@assets/images/React.astro';
+import Next from '@assets/images/Next.astro';
+import Node from '@assets/images/Node.astro';
+import TypeScript from '@assets/images/TypeScript.astro';
+import Git from '@assets/images/Git.astro';
 ---
 
 <section
 	id="technologies"
 	data-testid="technologies"
-	class="mb-10 flex flex-col items-center justify-center lg:mb-0 lg:h-screen lg:flex-row"
+	class="py-6 flex flex-col items-center justify-center lg:py-52 lg:mb-3 lg:flex-row"
 >
 	<div class="mb-10 flex w-full flex-col items-center justify-center lg:mb-0 lg:w-1/2">
-		<h2 class="font-sans text-2xl   gradient-secondary-light dark:gradient-secondary-dark text-transparent bg-clip-text  lg:text-4xl">Tecnologías</h2>
-		<span class="mb-6 ml-2 h-1 w-10 bg-pinky"></span>
+		<h2
+			class="font-sans text-2xl gradient-secondary-light dark:gradient-secondary-dark text-transparent bg-clip-text lg:text-4xl"
+		>
+			Tecnologías
+		</h2>
+		<span class="mb-6 
+		ml-2 h-1 w-10 bg-pinky"></span>
 	</div>
 
-	<div  class="flex  flex-col sm:flex-row md:flex-row justify-center  items-center gap-10 ">
-		<div class="react p-3 rounded-md  border-2 dark:border-none  ">
+	<div class="flex flex-col sm:flex-row md:flex-row justify-center items-end gap-10">
+		<div class="react p-3 rounded-md border-2 dark:border-none">
 			<React />
 		</div>
-		<div class="next  p-3  rounded-md   border-2  dark:border-none">
-			<Next  />
+		<div class="next p-3 rounded-md border-2 dark:border-none">
+			<Next />
 		</div>
-		
-		<div class="node  p-3 rounded-md   border-2  dark:border-none">
-			<Node  />
-		</div>
-		<div class="typeScript p-3 rounded-md   border-2  dark:border-none">
-			<TypeScript  />
-		</div>
-		
-		<div class="git p-3 rounded-md   border-2  dark:border-none">
-			<Git/>
-		</div>
-		
 
+		<div class="node p-3 rounded-md border-2 dark:border-none">
+			<Node />
+		</div>
+		<div class="typeScript p-3 rounded-md border-2 dark:border-none">
+			<TypeScript />
+		</div>
+
+		<div class="git p-3 rounded-md border-2 dark:border-none">
+			<Git />
+		</div>
 	</div>
 </section>
 
 <style>
-.react {
-	background-color: hsla(193,95%,68%,8%);
-	box-shadow: 0 1px 0 0 102,64%,40% inset;
-}
-.next {
-	background-color: hsla(0,50%,100%,8%);
-	box-shadow: 0 1px 0 0 102,64%,40% inset;
+	.react {
+		background-color: hsla(193, 95%, 68%, 8%);
+		box-shadow: 0 1px 0 0 102, 64%, 40% inset;
+	}
+	.next {
+		background-color: hsla(0, 50%, 100%, 8%);
+		box-shadow: 0 1px 0 0 102, 64%, 40% inset;
+	}
+	.node {
+		background-color: hsla(89, 53%, 54%, 8%);
+		box-shadow: 0 1px 0 0 89, 53%, 54% inset;
+	}
+	.typeScript {
+		background-color: hsla(211, 60%, 48%, 8%);
+		box-shadow: 0 1px 0 0 211, 60%, 48% inset;
+	}
+	.git {
+		background-color: hsla(11, 90%, 55%, 8%);
+		box-shadow: 0 1px 0 0 11, 90%, 55% inset;
+	}
 
+	[data-testid='technologies'] {
+		position: relative;
+	}
 
-
-
-
-
-
-
-	
-}
-.node {
-	background-color: hsla(89,53%,54%,8%);
-	box-shadow: 0 1px 0 0 89,53%,54% inset;
-}
-.typeScript {
-	background-color: hsla(211,60%,48%,8%);
-	box-shadow: 0 1px 0 0 211,60%,48% inset;
-}
-.git {
-	background-color: hsla(11,90%,55%,8%);
-	box-shadow: 0 1px 0 0 11,90%,55% inset;
-}
-
-[data-testid='technologies'] {
-	position: relative;
-}
-
-[data-testid='technologies']::before {
-    content: '';
-	position: absolute;
-	top: 30%;
-	left: 45%;
-	width: 70%;
-	height: 30%;
-	background-image: url('../assets/images/beams-components-24fbfee2.webp');
-	background-size: cover;
-	filter: blur(50px);
-	z-index: -1;
-}
-
-
+	[data-testid='technologies']::before {
+		content: '';
+		position: absolute;
+		top: 30%;
+		left: 45%;
+		width: 70%;
+		height: 30%;
+		background-image: url('../assets/images/beams-components-24fbfee2.webp');
+		background-size: cover;
+		filter: blur(50px);
+		z-index: -1;
+	}
 </style>
-
-

@@ -1,18 +1,22 @@
 ---
 import Button from '@components/ui/Button.astro';
 import Social from '@components/ui/Social.astro';
+import CV from '@assets/CV/curriculum-vitae.pdf';
 ---
+
 <div
 	data-testid="contact"
 	id="contact"
 	class="flex flex-col flex-wrap items-center justify-center gap-8 mt-2 text-black dark:text-white"
 >
-	<Button size={'sm'} style={'primary'} name="Descargar CV">Descargar CV</Button>
+	<a href={CV} download="curriculum-vitae.pdf">
+		<Button size="sm" variant="primary">Descargar CV</Button>
+	</a>
+
 	<div class="w-1/2">
-		<div class="h-px bg-gray-400 "></div>
+		<div class="h-px bg-gray-400"></div>
 	</div>
 	<div class="flex flex-row gap-9 mb-32 lg:gap-11 xl:gap-11">
 		<Social />
 	</div>
 </div>
-
