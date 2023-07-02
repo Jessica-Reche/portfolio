@@ -11,5 +11,5 @@ links:
     label: Repositorio de frontend
   - url: https://github.com/Jessica-Reche/backend-tienda.git
     label: Repositorio de backend
-tags: ["React",  "Node.js",  "MongoDB","Styled components"]
+tags: ["React",  "Node.js",  "MongoDB","Styled components","Docker"]
 ---

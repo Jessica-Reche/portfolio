@@ -10,7 +10,7 @@
 		bg-trasparent  border-2 border-gray-400 
 		black:border-2 black:border-gray-300 before:relative 
 		before:rounded-full before:transition-[0.4s]
-		before:bg-violet"  
+	 	before:bg-violet"  
 		id="sliderButton"
 		>
 		</div>
@@ -39,7 +39,10 @@
 	html.dark  #sliderButton::before {
 		background-image: url('../../assets/images/dark-mode.svg');
 	}
-	
+	html.dark #sliderButton::before {
+    filter: drop-shadow(0px 3px 6px rgba(254, 159, 222, 0.56));
+}
+
 </style>
 
 <script>
