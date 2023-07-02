@@ -19,14 +19,17 @@ const projects = await getCollection('projects', ({ data }) => {
                 style={`display: ${index === 0 ? 'block' : 'none'}`}
                 class="slide flex max-w-2xl items-center justify-center rounded-2xl bg-cover bg-center duration-500 "
             >
-                <div class="card-wrapper">
-                    <Card
-                        urlWeb={slide.data.web_url}
-                        url={slide.data.links}
-                        title={slide.data.title}
-                        alt={slide.data.img_alt ?? ''}
-                        tags={slide.data.tags}
-                    />
+                <div class="card-wrapper ">
+                    <a target="_blank" rel="noreferer noopener" href={slide.data.web_url}>
+                        <Card
+                            urlWeb={slide.data.web_url}
+                            url={slide.data.links}
+                            title={slide.data.title}
+                            description={slide.data.description}
+                            alt={slide.data.img_alt ?? ''}
+                            tags={slide.data.tags}
+                        />
+                    </a>
                 </div>
             </div>
         ))
@@ -34,10 +37,10 @@ const projects = await getCollection('projects', ({ data }) => {
 
     <button
         type="button"
-        class="control absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        class="control absolute top-1/2 left-4 transform -translate-y-1/2 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         data-direction="prev"
         ><span
-            class="inline-flex items-center justify-center w-12 h-12 rounded-full sm:w-16 sm:h-16 bg-black/75 dark:bg-white/75   dark:group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+            class="inline-flex items-center justify-center w-12 h-12 rounded-full sm:w-16 sm:h-16 bg-black/75 dark:bg-white/75 dark:group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
         >
             <svg
                 aria-hidden="true"
@@ -56,13 +59,14 @@ const projects = await getCollection('projects', ({ data }) => {
             <span class="sr-only">Previous</span>
         </span>
     </button>
+
     <button
         type="button"
-        class="control absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        class="control absolute top-1/2 right-4 transform -translate-y-1/2 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         data-direction="next"
     >
         <span
-            class="inline-flex items-center justify-center w-12 h-12 rounded-full sm:w-16 sm:h-16 bg-black/75 dark:bg-white/75  dark:group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+            class="inline-flex items-center justify-center w-12 h-12 rounded-full sm:w-16 sm:h-16 bg-black/75 dark:bg-white/75 dark:group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
         >
             <svg
                 aria-hidden="true"

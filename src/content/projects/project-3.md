@@ -1,11 +1,12 @@
 ---
 inProgress: false
-title: Project title 3
-img_alt: Natural cherry
+title: Tienda de tartas
+img_alt: Natural Cherry
 web_url: https://naturalcherry.netlify.app/
+description: Durante el FP  de formación dual realicé como proyecto una tienda de tartas
 links:
   - url: https://naturalcherry.netlify.app/
-    label: Sitio web 3
+    label: Sitio web
   - url: https://github.com/Jessica-Reche/frontend-tienda-react.git
     label: Repositorio de frontend
   - url: https://github.com/Jessica-Reche/backend-tienda.git

@@ -2,63 +2,72 @@
 import projectImage from '@assets/images/logo-2.png';
 import { Image } from '@astrojs/image/components';
 import Tags from '@components/ui/Tags.astro';
+import Button from './Button.astro';
+import { Icon } from 'astro-icon';
 
 interface Props {
 	title: string;
+	description: string | undefined;
 	alt: string;
 	tags: string[];
 	urlWeb: string | undefined;
 	url: { url: string; label: string }[] | undefined;
 	children?: HTMLElement | HTMLElement[];
 }
-const { alt, title, tags, urlWeb, url } = Astro.props;
+const { alt, title, tags, url, description } = Astro.props;
 ---
 
 <section
-	class="flex flex-row max-w-[900px] justify-center  border border-black dark:border-white rounded-md"
+	class="flex flex-row justify-center items-stretch xl:min-w-[800px] w-full border border-black dark:border-white rounded-md"
 >
-	<section
-		class="flex flex-col rounded-lg bg-transparent shadow-pinkligth dark:bg-transparent md:w-full md:flex-row"
-	>
+	<section class="flex flex-col rounded-lg bg-transparent dark:bg-black/30 md:flex md:flex-row">
 		<figure class="w-full h-full">
 			<Image
+				format="png"
+				width={500}
+				height={500}
 				src={projectImage}
-				loading="eager"
+				loading="lazy"
 				alt={alt}
-				class="h-96 w-full rounded-t-lg object-contain md:object-cover md:h-auto md:w-72 md:rounded-none md:rounded-l-lg"
+				class="h-full w-full rounded-t-lg object-contain md:object-cover md:h-auto md:rounded-none md:rounded-l-lg"
 			/>
 		</figure>
-		<article class="flex flex-col justify-start p-6">
+		<article class="flex flex-col justify-start p-6 flex-grow">
 			<header>
-				<h5 class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
+				<h5 class="mb-2 text-3xl font-medium text-neutral-800 dark:text-slate-400">
 					{title}
 				</h5>
 				<p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-					This is a wider card with supporting text below as a natural lead-in to
-					additional content. This content is a little bit longer.
+					{description}
 				</p>
+
+				<Tags tags={tags} />
 			</header>
 			<footer>
-				<p class="text-xs text-neutral-500 dark:text-neutral-300">
-					Last updated 3 mins ago
-				</p>
-				<span class="font-normal text-gray-600 text-base">
-					{
-						url?.map(({ url, label }) => (
-							<>
-								<a
-									href={url}
-									target="_blank"
-									rel="noopener noreferrer"
-									class="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
-								>
-									{label}
-								</a>
-							</>
-						))
-					}
-				</span>
+				<div class="flex flex-row justify-end gap-3 mt-2">
+					<a
+						href="https://github.com/Jessica-Reche"
+						target="_blank"
+						rel="noopener"
+						aria-label="github"
+						><Icon class="code h-14 md:h-14" name="simple-icons:github" />
+					</a>
+					<a
+						href="https://linkedin.com/in/jesica-reche-lloret-b77734247"
+						target="_blank"
+						rel="noopener"
+						aria-label="go"
+						><Icon class="go h-20 md:h-20 rounded-md" name="simple-icons:go" /></a
+					>
+				</div>
 			</footer>
 		</article>
 	</section>
 </section>
+
+<style>
+	.go:hover,
+	.code:hover {
+		filter: drop-shadow(2px 4px 6px rgba(254, 159, 222, 0.56));
+	}
+</style>
