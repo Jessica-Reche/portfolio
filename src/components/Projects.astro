@@ -6,11 +6,13 @@ import { getCollection } from 'astro:content';
 const projects = await getCollection('projects', ({ data }) => {
     return !data.inProgress;
 });
+
 ---
 
 <!-- <div>
     <Debug {projects} />
 </div> -->
+
 <div class="w-full relative group flex items-center justify-center" id="carousel">
     {
         projects.map((slide, index) => (
@@ -20,9 +22,9 @@ const projects = await getCollection('projects', ({ data }) => {
                 class="slide flex max-w-2xl items-center justify-center rounded-2xl bg-cover bg-center duration-500 "
             >
                 <div class="card-wrapper ">
-                    <a target="_blank" rel="noreferer noopener" href={slide.data.web_url}>
+                    <a target="_blank" rel="noreferer noopener" href={slide.data.links[0].url}>
                         <Card
-                            urlWeb={slide.data.web_url}
+                            img={slide.data.img}
                             url={slide.data.links}
                             title={slide.data.title}
                             description={slide.data.description}

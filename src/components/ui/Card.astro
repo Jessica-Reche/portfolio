@@ -1,39 +1,57 @@
 ---
 import projectImage from '@assets/images/logo-2.png';
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import Tags from '@components/ui/Tags.astro';
-import Button from './Button.astro';
 import { Icon } from 'astro-icon';
+import { Debug } from 'astro/components';
 
 interface Props {
 	title: string;
 	description: string | undefined;
 	alt: string;
 	tags: string[];
-	urlWeb: string | undefined;
 	url: { url: string; label: string }[] | undefined;
 	children?: HTMLElement | HTMLElement[];
+	img: string | ImageMetadata;
 }
-const { alt, title, tags, url, description } = Astro.props;
+const { alt, title, tags, url, description, img } = Astro.props;
+const getIconAndTitle = (label) => {
+	const icons = {
+		backend: {
+			icon: 'code',
+			title: 'Servidor',
+		},
+		frontend: {
+			icon: 'language-html5',
+			title: 'Cliente',
+		},
+		web: {
+			icon: 'web',
+			title: 'Web',
+		},
+	};
+
+	return icons[label];
+};
 ---
 
 <section
-	class="flex flex-row justify-center items-stretch xl:min-w-[800px] w-full border border-black dark:border-white rounded-md"
+	class="flex flex-row justify-center items-stretch xl:min-w-[800px] border border-black dark:border-white rounded-md"
 >
 	<section class="flex flex-col rounded-lg bg-transparent dark:bg-black/30 md:flex md:flex-row">
-		<figure class="w-full h-full">
+		<figure class="w-full h-full border border-black dark:border-white">
 			<Image
-				format="png"
+				oncontextmenu="return false"
 				width={500}
 				height={500}
-				src={projectImage}
+				src={typeof img === 'string' ? img : img.src}
 				loading="lazy"
 				alt={alt}
 				class="h-full w-full rounded-t-lg object-contain md:object-cover md:h-auto md:rounded-none md:rounded-l-lg"
 			/>
 		</figure>
-		<article class="flex flex-col justify-start p-6 flex-grow">
-			<header>
+		<article class="flex flex-col justify-start flex-grow">
+			<header class="p-4">
 				<h5 class="mb-2 text-3xl font-medium text-neutral-800 dark:text-slate-400">
 					{title}
 				</h5>
@@ -43,22 +61,30 @@ const { alt, title, tags, url, description } = Astro.props;
 
 				<Tags tags={tags} />
 			</header>
-			<footer>
-				<div class="flex flex-row justify-end gap-3 mt-2">
-					<a
-						href="https://github.com/Jessica-Reche"
-						target="_blank"
-						rel="noopener"
-						aria-label="github"
-						><Icon class="code h-14 md:h-14" name="simple-icons:github" />
-					</a>
-					<a
-						href="https://naturalcherry.netlify.app/"
-						target="_blank"
-						rel="noopener"
-						aria-label="go"
-						><Icon class="go h-20 md:h-20 rounded-md" name="simple-icons:go" /></a
-					>
+
+			<footer class="flex flex-row justify-center p-4 border border-black dark:border-white">
+				<div class="flex flex-row justify-center gap-3">
+					{
+						url?.map(({ url, label }) => {
+							const { icon, title } = getIconAndTitle(label);
+
+							return (
+								<a
+									class={`${icon} flex-column flex items-center`}
+									href={url}
+									target="_blank"
+									rel="noopener"
+									aria-label={icon}
+								>
+									<Icon
+										class={`${icon} h-10 text-xs md:h-10 `}
+										name={`mdi:${icon}`}
+									/>
+									{title}
+								</a>
+							);
+						})
+					}
 				</div>
 			</footer>
 		</article>
@@ -66,8 +92,9 @@ const { alt, title, tags, url, description } = Astro.props;
 </section>
 
 <style>
-	.go:hover,
-	.code:hover {
+	.code:hover,
+	.language-html5:hover,
+	.web:hover {
 		filter: drop-shadow(2px 4px 6px rgba(254, 159, 222, 0.56));
 	}
 </style>
