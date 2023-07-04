@@ -1,9 +1,8 @@
 ---
-import projectImage from '@assets/images/logo-2.png';
 import { Image } from 'astro:assets';
 import Tags from '@components/ui/Tags.astro';
 import { Icon } from 'astro-icon';
-import { Debug } from 'astro/components';
+//import { Debug } from 'astro/components';
 
 interface Props {
 	title: string;
@@ -12,7 +11,7 @@ interface Props {
 	tags: string[];
 	url: { url: string; label: string }[] | undefined;
 	children?: HTMLElement | HTMLElement[];
-	img: string | ImageMetadata;
+	img: string | ImageMetadata | undefined;
 }
 const { alt, title, tags, url, description, img } = Astro.props;
 const getIconAndTitle = (label) => {
