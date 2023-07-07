@@ -24,6 +24,10 @@ const getIconAndTitle = (label) => {
 			icon: 'language-html5',
 			title: 'Cliente',
 		},
+		code:{
+			icon:'code',
+			title:'Código fuente'
+		},
 		web: {
 			icon: 'web',
 			title: 'Web',
@@ -38,11 +42,11 @@ const getIconAndTitle = (label) => {
 	class="flex flex-row justify-center items-stretch xl:min-w-[800px] border border-black dark:border-white rounded-md"
 >
 	<section class="flex flex-col rounded-lg bg-transparent dark:bg-black/30 md:flex md:flex-row">
-		<figure class="w-full h-full border border-black dark:border-white">
+		<figure class="w-full h-full border border-black dark:border-white ">
 			<Image
 				oncontextmenu="return false"
-				width={500}
-				height={500}
+				width={50}
+				height={50}
 				src={img}
 				loading="lazy"
 				alt={alt}
@@ -61,8 +65,8 @@ const getIconAndTitle = (label) => {
 				<Tags tags={tags} />
 			</header>
 
-			<footer class="flex flex-row justify-center p-4 border border-black dark:border-white">
-				<div class="flex flex-row justify-center gap-3">
+			<footer class="flex flex-row h-full w-full justify-center p-4 border border-black dark:border-white">
+				<div class="flex flex-row  h-full w-full justify-center gap-3">
 					{
 						url?.map(({ url, label }) => {
 							const { icon, title } = getIconAndTitle(label);
